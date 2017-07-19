@@ -11,16 +11,107 @@
       <h1>FAST Machine Protection System</h1>
       <div class="status-control">
         <h2>Status & Control</h2>
-        <div class="status"></div>
-        <div class="control"></div>
-        <div class="summary"></div>
+        <ul class="status">
+          <li>
+            <span class="heading">Trip Status</span>
+            <span class="reading">UNKNOWN</span>
+          </li>
+          <li>
+            <span class="heading">Revision</span>
+            <span class="reading">0000</span>
+          </li>
+          <li>
+            <span class="heading">Product ID</span>
+            <span class="heading">0000</span>
+          </li>
+        </ul>
+        <ul class="control">
+          <li>
+            <span class="heading">Permit Status</span>
+            <span class="reading"></span>
+            <button class="setting">RESET</button>
+          </li>
+          <li>
+            <span class="heading">Permit Enable</span>
+            <span class="reading"></span>
+            <button class="setting">ENABLE</button>
+          </li>
+          <li>
+            <span class="heading">Laser Permit</span>
+            <span class="reading"></span>
+            <button class="setting">ENABLE</button>
+          </li>
+        </ul>
+        <div class="summary">
+          <span class="heading">Trip Summary</span>
+          <span class="reading">UNKNOWN</span>
+          <button>QUERY</button>
+        </div>
       </div>
       <div class="permit">
         <h2>Permit Inputs</h2>
-        <div class="heading"></div>
-        <div class="permits"></div>
+        <ul>
+          <li class="heading">
+            <span>Permit Block</span>
+            <span>Input</span>
+            <span>Status</span>
+            <span>Polarity</span>
+            <span>Mask</span>
+          </li>
+          <li>
+            <span>#1 (Ch 01:16)</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </li>
+          <li>
+            <span>#1 (Ch 17:32)</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </li>
+          <li>
+            <span>#3 (Ch 33:48)</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </li>
+          <li>
+            <span>#4 (Ch 49:64)</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </li>
+          <li>
+            <span>#5 (Ch 65:80)</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </li>
+          <li>
+            <span>#6 (Ch 81:96)</span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </li>
+        </ul>
       </div>
-      <div class="movable"></div>
+      <ul class="movable">
+        <li>
+          <span class="heading">Movable Devices</span>
+          <button>LAUNCH</button>
+        </li>
+        <li>
+          <span class="heading">Movable Dev Enb</span>
+          <button>DISABLED</button>
+        </li>
+      </ul>
     </div>
     <script src="js/index.js"></script>
   </body>
