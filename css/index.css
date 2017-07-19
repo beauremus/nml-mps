@@ -22,9 +22,9 @@ img {
 If no grid support, limit width to 50em and center align
 --------------------------------------------------------------*/
 @supports not (display: grid) {
-  .page-title,
-  .main-content,
-  .sidebar {
+  .status-control,
+  .permit,
+  .movable {
     max-width: 50em;
     margin: 0 auto;
   }
@@ -33,50 +33,112 @@ If no grid support, limit width to 50em and center align
 /*--------------------------------------------------------------
 CSS Grid layout for wider screens, when browser supports grid:
 --------------------------------------------------------------*/
-
 @supports (display: grid) {
   @media screen and (min-width: 800px) {
-    
+
     .site {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto 1fr 3fr;
       grid-template-areas:
-        "content-head content-head"
-        "main header"
-        "main sidebar"
-        "footer footer";
+        "header header"
+        "status-control status-control"
+        "permit permit"
+        "movable movable";
     }
-    
-    .masthead {
+
+    .status {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-area: status;
+    }
+
+    .control {
+      display: grid;
+      grid-template-columns: 3fr 1fr 2fr;
+      grid-area: control;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 3fr 2fr 1fr;
+      grid-area: summary;
+    }
+
+    header {
       grid-area: header;
     }
-    
-    .page-title {
-      grid-area: content-head;
+
+    .status-control {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 3fr 3fr 3fr 1fr;
+      grid-template-areas:
+        "header header"
+        "status status"
+        "control control"
+        "summary summary";
+      display: grid; 
+      grid-area: status-control;
     }
-    
-    .main-content {
-      grid-area: main;
+
+    .permit {
+      grid-area: permit;
     }
-    
-    .sidebar {
-      grid-area: sidebar;
+
+    .movable {
+      grid-area: movable;
     }
-    
-    .colophon {
-      grid-area: footer;
+
+    .reading {
+      justify-self: center;
     }
-    
   }
-  
+
   @media screen and (min-width: 1200px) {
     .site {
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:
-        "content-head content-head content-head"
-        "main header header"
-        "main sidebar footer";
+        "header header header"
+        "status-control status-control status-control"
+        "permit permit movable"; 
+    }
+
+    .status-control {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 3fr 3fr 1fr;
+      grid-template-areas:
+        "header header header"
+        "status . control"
+        "summary summary summary";
+    }
+
+    .summary {
+      grid-template-columns: 1fr 4fr 1fr;
     }
   }
+}
+
+/*--------------------------------------------------------------
+Styles
+--------------------------------------------------------------*/
+body {
+  background-color: black;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.heading {
+  background-color: lightskyblue;
+  border-color: white;
+  color: black;
+  padding: 0.25em 0.5em;
+  border-style: solid;
+  border-width: thin;
+}
+
+.control > .reading {
+  background-color: white;
+  width: 100%;
 }
