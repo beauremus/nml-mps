@@ -82,6 +82,13 @@ CSS Grid layout for wider screens, when browser supports grid:
 
     .permit {
       grid-area: permit;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 3fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .permit-heading {
+      grid-area: permit-heading;
     }
 
     .movable {
