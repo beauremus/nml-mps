@@ -1,3 +1,23 @@
+function range (start = 0, stop, step = 1) {
+  if (Math.sign(stop - start) !== Math.sign(step)) {
+    console.error('Step has the wrong sign')
+    return
+  } else if ((stop - start) % step !== 0) {
+    console.error('Range must be divisible by step')
+    return
+  }
+
+  const result = []
+  let iterator = start
+
+  while (Math.abs(stop - iterator) > 0) {
+    result.push(iterator)
+    iterator += step
+  }
+
+  return result
+}
+
 const TESTER = document.getElementById('tester')
 
 Plotly.plot(TESTER, [
