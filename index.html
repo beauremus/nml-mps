@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MPS</title>
+    <title>NML Loss Thresholds</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="//www-ad.fnal.gov/acnet/proto_lib.js"></script>
+    <script src="//www-ad.fnal.gov/acnet/dpm_protocol.js"></script>
+    <script src="//www-ad.fnal.gov/acnet/acnet.js"></script>
+    <script src="//www-ad.fnal.gov/acnet/dpm.js"></script>
+    <script src="//www-ad.fnal.gov/acnet/acld_protocol-1.0.js"></script>
+    <script src="//www-ad.fnal.gov/acnet/acld-1.0.js"></script>
   </head>
   <body>
-    <div id="tester" style="width: 960px; margin: auto;"></div>
-    <script src="node_modules/plotly.js/dist/plotly.js"></script>
-    <script src="js/index.js"></script>
+    <header>NML MPS</header>
+    <div id="max">
+      Max Height: <input value="0" />
+    </div>
+    <script src="js/vendor/d3.v4.min.js"></script>
+    <script src="js/const.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      const max = document.querySelector('#max').querySelector('input')
+      max.value = rect.max
+      max.addEventListener('change', () => updateMax(max.value))
+    </script>
   </body>
 </html>
