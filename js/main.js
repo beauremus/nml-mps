@@ -9,15 +9,15 @@ function updateLoss(elementName) {
 
   return (dpmData, dpmInfo) => {
     let data = yScale(10)
-    if (dpmData.data > 10) data = yScale(dpmData.data)
+    if (dpmData.data < -10) data = yScale(Math.abs(dpmData.data))
 
-    parent.select('rect').transition(t)
+    parent.select('rect')//.transition(t)
       .attr('height', height - data)
       .attr('y', data)
 
     parent.select('.data')
       .attr('y', data + text.offset)
-      .text(dpmData.data.toFixed(2))
+      .text(Math.abs(dpmData.data).toFixed(2))
 
     parent.select('.label')
       .text(dpmInfo.name)
@@ -34,22 +34,26 @@ function updateThreshold(elementName, thresholdType) {
   }
 
   return (dpmData, dpmInfo) => {
+    let data = yScale(10)
+    if (dpmData.data < -10) data = yScale(Math.abs(dpmData.data))
+
     parent.select(thresholdType).select('.line')
-      .attr('y1', yScale(dpmData.data))
-      .attr('y2', yScale(dpmData.data))
+      .attr('y1', data)
+      .attr('y2', data)
 
     parent.select(thresholdType).select('.label')
-      .attr('y', yScale(dpmData.data))
+      .attr('y', data)
       .text(dpmInfo.name)
 
     parent.select(thresholdType).select('.data')
-      .attr('y', yScale(dpmData.data) + text.offset)
-      .text(dpmData.data.toFixed(0))
+      .attr('y', data + text.offset)
+      .text(Math.abs(dpmData.data).toFixed(0))
   }
 }
 
 const yScale = d3.scaleLinear()
-  .domain([0, rect.max]) // input
+  // .domain([0, rect.max]) // input
+  .domain([rect.max, 0])
   .range([height, 0]) // output
 
 const xScale = d3.scaleBand()
